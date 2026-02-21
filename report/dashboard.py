@@ -1,3 +1,7 @@
+import builtins
+from typing import Any as _Any
+builtins.Any = _Any
+
 from fasthtml.common import *
 import matplotlib.pyplot as plt
 
