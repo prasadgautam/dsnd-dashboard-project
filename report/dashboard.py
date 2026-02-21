@@ -61,7 +61,16 @@ class Header(BaseComponent):
         # Using the model argument for this method
         # return a fasthtml H1 objects
         # containing the model's name attribute
-        return H1(model.name.title())
+        # Use a mapping so the dashboard titles read
+        # "Employee Performance" / "Team Performance"
+        title_map = {
+            "employee": "Employee Performance",
+            "team": "Team Performance",
+        }
+        title = title_map.get(str(model.name).lower(), str(model.name).title())
+
+        # Return a fasthtml H1 object containing the title
+        return H1(title)
 
 
 # Create a subclass of base_components/MatplotlibViz
